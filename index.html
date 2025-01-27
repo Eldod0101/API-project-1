@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POSTS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- نموذج إنشاء المنشور -->
+        <form id="createPostForm">
+            <input type="text" name="title" placeholder="Title" required>
+            <textarea name="description" placeholder="Content" required></textarea>
+            <button type="submit">Create Post</button>
+            <button class="deleteAll" type="button" onclick="deleteAllPosts()">Delete All Posts</button>
+        </form>
+
+        <!-- قسم تحديث المنشور (سيتم تعبئته ديناميكيًا) -->
+        <div id="updateFormContainer"></div>
+
+        <!-- قسم عرض المنشورات -->
+        <div id="postsContainer"></div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+:root {
+    --primary: #007bff;
+    --primary-hover: #0056b3;
+    --background: #f1f1f1;
+    --white: #ffffff;
+    --text: #333;
+    --error: #dc3545;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+    background: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    max-width: 800px;
+    width: 100%;
+    background: var(--white);
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  }
+  
+  .container .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    color: var(--primary);
+  }
+  
+  .container .title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 50px;
+    background: var(--primary);
+  }
+  
+  #postsContainer {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+  }
+  
+  .postBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: var(--white);
+    transition: transform 0.3s ease;
+  }
+  
+  .postBody:hover {
+    transform: translateY(-3px);
+  }
+  
+  .postBody h3 {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .postBody p {
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+  .postBody button, 
+  #getPosts {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background: var(--white);
+    color: var(--primary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .postBody button:hover, 
+  #getPosts:hover {
+    background: var(--primary-hover);
+    color: var(--white);
+  }
+  
+  #createPostForm,
+  #updatePostForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  #createPostForm input , 
+  #createPostForm textarea,
+  #updatePostForm input,
+  #updatePostForm textarea {
+    padding: 12px;
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+
+  #createPostForm textarea,
+    #updatePostForm textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+  
+  #createPostForm input:focus , 
+  #createPostForm textarea:focus,
+  #updatePostForm input:focus,
+  #updatePostForm textarea:focus {
+    padding: 12px;
+    outline: none;
+    border-color: var(--primary-hover);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  }
+  
+  #createPostForm button,
+  #updatePostForm button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: var(--primary);
+    color: var(--white);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  #createPostForm button:hover {
+    background: var(--primary-hover);
+  }
+  
+  .error {
+    color: var(--error);
+    padding: 12px;
+    border: 1px solid var(--error);
+    border-radius: 6px;
+    margin: 15px 0;
+    background: #f8d7da;
+  }
+  
+  /* التجاوب */
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+      margin: 10px;
+    }
+    
+    #postsContainer {
+      grid-template-columns: 1fr;
+    }
+    
+    .postBody {
+      width: auto;
+      margin: 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .createPost input {
+      font-size: 16px;
+    }
+    
+    .postBody button, 
+    #getPosts {
+      width: 100%;
+    }
+  }
