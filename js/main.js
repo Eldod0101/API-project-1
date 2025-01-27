@@ -164,3 +164,17 @@ async function deleteAllPosts() {
     showError(error.message);
   }
 }
+
+// Search for posts by name
+async function searchPosts() {
+  const query = document.getElementById('searchInput').value;
+  try {
+    const response = await fetch(`${API}?name=${query}`);
+    if (!response.ok) throw new Error('Failed to fetch posts');
+    
+    const posts = await response.json();
+    renderPosts(posts);
+  } catch (error) {
+    showError(error.message);
+  }
+}
